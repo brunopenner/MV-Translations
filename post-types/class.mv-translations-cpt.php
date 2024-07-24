@@ -4,6 +4,7 @@ if (!class_exists('MV_Translations_Post_Type')) {
     class MV_Translations_Post_Type {
         public function __construct() {
             add_action('init', array($this, 'create_post_type'));
+            add_action('init', array($this, 'create_taxonomy'));
         }
 
         public function create_post_type() {
@@ -33,6 +34,23 @@ if (!class_exists('MV_Translations_Post_Type')) {
                     'menu_icon' => 'dashicons-admin-site',
                     // 'register_meta_box_cb' => array($this, 'add_meta_boxes')
                 )
+            );
+        }
+
+        public function create_taxonomy() {
+            register_taxonomy(
+                'singers',
+                'mv-translations',
+                array(
+                    'labels' => array(
+                        'name' => __('Singers', 'mv-translations'),
+                        'singular_name' => __('Singer', 'mv-translations'),
+                    ),
+                    'hierarchical' => false,
+                    'show_in_rest' => true,
+                    'public'    => true,
+                    'show_admin_column' => true
+                )  
             );
         }
     }
