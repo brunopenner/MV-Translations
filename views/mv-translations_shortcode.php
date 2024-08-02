@@ -55,7 +55,7 @@ if (isset ($_POST['submitted'])) {
 
         <?php
             if ($errors != '') {
-                foreach($erros as $error) {
+                foreach($errors as $error) {
                     ?>
                         <span class="error">
                             <?php echo $error; ?>
