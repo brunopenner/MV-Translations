@@ -44,15 +44,31 @@ if (isset ($_POST['submitted'])) {
             'tax_input'     => array (
                 'singers' => sanitize_text_field($singer)
             ),
-            'post_status'   => 'pending'
+            'ID'            =>$_GET['post']
         );
     
-        $post_id = wp_insert_post($post_info);
+        $post_id = wp_update_post($post_info);
     
         global $post;
         MV_Translations_Post_Type::save_post($post_id, $post);
     }
 }
+
+global $current_user; 
+global $wpdb;
+$q = $wpdb->prepare(
+    "SELECT ID, post_author, post_title, post_content, meta_key, meta_value
+    FROM $wpdb->posts AS p
+    INNER JOIN $wpdb->translationmeta AS tm
+    ON p.ID = tm.translation_id
+    WHERE p.ID = %d
+    AND p.post_author = %d
+    ORDER BY p.post_date DESC",
+    $_GET['post'],
+    $current_user->ID   
+);
+$results = $wpdb->get_results($q, ARRAY_A);
+var_dump($results);
 ?>
 <div class="mv-translations">
     <form action="" method="POST" id="translations-form">
@@ -96,58 +112,10 @@ if (isset ($_POST['submitted'])) {
             <input type="url" name="mv_translations_video_url" id="mv_translations_video_url" value="<?php if(isset($video)) echo $video; ?>" />
         </fieldset>
         <br />
-        <input type="hidden" name="mv_translations_action" value="save">
+        <input type="hidden" name="mv_translations_action" value="update">
         <input type="hidden" name="action" value="editpost">
         <input type="hidden" name="mv_translations_nonce" value="<?php echo wp_create_nonce( 'mv_translations_nonce' ); ?>">
         <input type="hidden" name="submitted" id="submitted" value="true" />
         <input type="submit" name="submit_form" value="<?php esc_attr_e( 'Submit', 'mv-translations' ); ?>" />
     </form>
-</div>
-<div class="translations-list">
-<?php
-global $current_user; 
-global $wpdb;
-$q = $wpdb->prepare(
-    "SELECT ID, post_author, post_date, post_title, post_status, meta_key, meta_value
-    FROM $wpdb->posts AS p
-    INNER JOIN $wpdb->translationmeta AS tm
-    ON p.ID = tm.translation_id
-    WHERE p.post_author = %d
-    AND tm.meta_key = 'mv_translations_transliteration'
-    AND p.post_status IN ('publish', 'pending')
-    ORDER BY p.post_date DESC
-    ",
-    $current_user->ID   
-);
-$results = $wpdb->get_results($q);
-
-if ($wpdb->num_rows):
-?>
-    <table>
-        <caption><?php esc_html_e( 'Your Translations', 'mv-translations' ); ?></caption>
-        <thead>
-            <tr>
-                <th><?php esc_html_e( 'Date', 'mv-translations' ); ?></th>
-                <th><?php esc_html_e( 'Title', 'mv-translations' ); ?></th>
-                <th><?php esc_html_e( 'Transliteration', 'mv-translations' ); ?></th>
-                <th><?php esc_html_e( 'Edit?', 'mv-translations' ); ?></th>
-                <th><?php esc_html_e( 'Delete?', 'mv-translations' ); ?></th>
-                <th><?php esc_html_e( 'Status', 'mv-translations' ); ?></th>
-            </tr>
-        </thead>  
-        <tbody> 
-        <?php foreach( $results as $result ):?> 
-            <tr>
-                <td><?php echo esc_html(date('d/m/Y', strtotime($result->post_date))); ?></td>
-                <td><?php echo esc_html($result->post_title); ?></td>
-                <td><?php echo $result->meta_value == 'Yes' ? esc_html__('Yes', 'mv-translations') : esc_html__('No', 'mv-translations'); ?></td>
-                <?php $edit_post = add_query_arg('post', $result->ID, home_url('/edit-translation')); ?>
-                <td><a href="<?php echo esc_url ($edit_post); ?>"><?php esc_html_e('Edit', 'mv-translations') ?></a></td>
-                <td><a onclick="return confirm('Are you sure you want to delete post: <?php echo $result->post_title; ?>?')" href="<?php echo get_delete_post_link($result->ID, "", true); ?>"><?php esc_html_e('Delete', 'mv-translations') ?></a></td>
-                <td><?php echo $result->post_status == 'publish' ? esc_html__('Published', 'mv-translations') : esc_html__('Pending', 'mv-translations'); ?></td>
-            </tr>
-        <?php endforeach; ?>
-        </tbody>
-    </table>
-<?php endif ?>
 </div>
