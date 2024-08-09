@@ -68,6 +68,7 @@ $q = $wpdb->prepare(
     $current_user->ID   
 );
 $results = $wpdb->get_results($q, ARRAY_A);
+if(current_user_can('edit_post', $_GET['post'])):
 ?>
 <div class="mv-translations">
     <form action="" method="POST" id="translations-form">
@@ -113,4 +114,11 @@ $results = $wpdb->get_results($q, ARRAY_A);
         <input type="hidden" name="submitted" id="submitted" value="true" />
         <input type="submit" name="submit_form" value="<?php esc_attr_e( 'Submit', 'mv-translations' ); ?>" />
     </form>
+    <a href="<?php echo esc_url(home_url('/submit-translation')); ?>"><?php esc_html_e('Back to translations list', 'mv-translations'); ?></a>
 </div>
+<?php endif; ?>
+<script>
+if ( window.history.replaceState ) {
+  window.history.replaceState( null, null, window.location.href );
+}
+</script>
