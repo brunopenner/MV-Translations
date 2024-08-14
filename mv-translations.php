@@ -161,10 +161,15 @@ if( !class_exists( 'MV_Translations' )){
                 AND post_name IN('submit-translation', 'edit-translation')"
             );
 
-            $wpdb->query ($wpdb->prepare(
-                "DROP TABLE IF EXISTS %s",
-                $wpdb->prefix . 'translationmeta'
-            ));
+            // $wpdb->query ($wpdb->prepare(
+            //     "DROP TABLE IF EXISTS %s",
+            //     $wpdb->prefix . 'translationmeta'
+            // ));
+
+            $wpdb->query (
+                "DROP TABLE IF EXISTS
+                {$wpdb->prefix}translationmeta"
+            );
         } 
         
         public function register_scripts() {
