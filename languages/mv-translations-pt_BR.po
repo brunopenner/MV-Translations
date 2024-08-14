@@ -1,0 +1,220 @@
+# Blank WordPress Pot
+# Copyright 2014 ...
+# This file is distributed under the GNU General Public License v3 or later.
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: MV Translations v1.0.0\n"
+"Report-Msgid-Bugs-To: Translator Name <translations@example.com>\n"
+"POT-Creation-Date: 2024-08-14 08:07+0800\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: Your Team <translations@example.com>\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Textdomain-Support: yesX-Generator: Poedit 1.6.4\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;esc_html_e;esc_html_x:1,2c;esc_html__;esc_attr_e;esc_attr_x:1,2c;esc_attr__;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;_x:1,2c;_n:1,2;_n_noop:1,2;__ngettext:1,2;__ngettext_noop:1,2;_c,_nc:4c,1,2\n"
+"X-Poedit-Basepath: ..\n"
+"X-Generator: Poedit 3.4.4\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: functions/functions.php:22
+msgid "Required form field is missing"
+msgstr "Campo requerido esta em branco."
+
+#: functions/functions.php:26
+msgid "Username too short. At least 6 characters is required"
+msgstr "Nome de usuario muito curto. Pelo menos 6 caracteres sao necessaries."
+
+#: functions/functions.php:30
+msgid "Invalid credentials"
+msgstr "Credenciais invalidas"
+
+#: functions/functions.php:34
+msgid "The username you entered is not valid!"
+msgstr "Nome de usuario invalido"
+
+#: functions/functions.php:38 functions/functions.php:42
+msgid "Email is not valid"
+msgstr "Email invalido"
+
+#: functions/functions.php:46
+msgid "Password is too short. Please enter at least 5 characters"
+msgstr "Senha muito curta. Por favor insira pelo menos 5 caracteres"
+
+#: functions/functions.php:75
+msgid "Create your account"
+msgstr "Cria a sua conta"
+
+#: functions/functions.php:77
+msgid "Username"
+msgstr "Nome de usuario"
+
+#: functions/functions.php:79
+msgid "First Name"
+msgstr "Nome"
+
+#: functions/functions.php:81
+msgid "Last Name"
+msgstr "Sobrenome"
+
+#: functions/functions.php:83
+msgid "Email address"
+msgstr "Email"
+
+#: functions/functions.php:85
+msgid "Password"
+msgstr "Senha"
+
+#: functions/functions.php:87
+msgid "Sign Up"
+msgstr "Inscreva-se"
+
+#: functions/functions.php:92
+msgid "Or login"
+msgstr "Ou login"
+
+#: mv-translations.php:112
+msgid "Submit Translation"
+msgstr "Enviar Traducao"
+
+#: mv-translations.php:125
+msgid "Edit Translation"
+msgstr "Editar Traducao"
+
+#: post-types/class.mv-translations-cpt.php:21
+#: post-types/class.mv-translations-cpt.php:25
+msgid "Translation"
+msgstr "Traducao"
+
+#: post-types/class.mv-translations-cpt.php:22
+#: post-types/class.mv-translations-cpt.php:24
+msgid "Translations"
+msgstr "Traducoes"
+
+#: post-types/class.mv-translations-cpt.php:53
+msgid "Singers"
+msgstr "CAntores"
+
+#: post-types/class.mv-translations-cpt.php:54
+#: views/mv-translations_edit_shortcode.php:92
+#: views/mv-translations_shortcode.php:76
+#: views/templates/single-mv-translations.php:34
+msgid "Singer"
+msgstr "Cantor"
+
+#: post-types/class.mv-translations-cpt.php:79
+msgid "Translations Options"
+msgstr "Opcoes de traducao"
+
+#: views/mv-translations_edit_shortcode.php:25
+#: views/mv-translations_shortcode.php:25
+msgid "Please, enter a title"
+msgstr "Por favor, insura um titulo"
+
+#: views/mv-translations_edit_shortcode.php:30
+#: views/mv-translations_shortcode.php:30
+msgid "Please, enter some content"
+msgstr "Por favor, insira algum conteudo"
+
+#: views/mv-translations_edit_shortcode.php:35
+#: views/mv-translations_shortcode.php:35
+msgid "Please, enter a singer"
+msgstr "Por favor, insira um cantor"
+
+#: views/mv-translations_edit_shortcode.php:75
+msgid "Edit translation"
+msgstr "Editar Traducao"
+
+#: views/mv-translations_edit_shortcode.php:89
+#: views/mv-translations_shortcode.php:73
+#: views/mv-translations_shortcode.php:131
+msgid "Title"
+msgstr "Titulo"
+
+#: views/mv-translations_edit_shortcode.php:102
+#: views/mv-translations_metabox.php:22 views/mv-translations_shortcode.php:90
+msgid "Has transliteration?"
+msgstr "Tem transliteracao?"
+
+#: views/mv-translations_edit_shortcode.php:104
+#: views/mv-translations_metabox.php:26 views/mv-translations_shortcode.php:92
+#: views/mv-translations_shortcode.php:143
+msgid "Yes"
+msgstr "Sim"
+
+#: views/mv-translations_edit_shortcode.php:105
+#: views/mv-translations_metabox.php:27 views/mv-translations_shortcode.php:93
+#: views/mv-translations_shortcode.php:143
+msgid "No"
+msgstr "Nao"
+
+#: views/mv-translations_edit_shortcode.php:107
+#: views/mv-translations_metabox.php:33 views/mv-translations_shortcode.php:95
+msgid "Video URL"
+msgstr "URL do video"
+
+#: views/mv-translations_edit_shortcode.php:115
+#: views/mv-translations_shortcode.php:103
+msgid "Submit"
+msgstr "Enviar"
+
+#: views/mv-translations_edit_shortcode.php:117
+msgid "Back to translations list"
+msgstr "Voltar para lista de traducoes"
+
+#: views/mv-translations_shortcode.php:59
+msgid "Submit new translation"
+msgstr "Enviar nova traducao"
+
+#: views/mv-translations_shortcode.php:127
+msgid "Your Translations"
+msgstr "Suas traducoes"
+
+#: views/mv-translations_shortcode.php:130
+msgid "Date"
+msgstr "Data"
+
+#: views/mv-translations_shortcode.php:132
+msgid "Transliteration"
+msgstr "Transliteracao"
+
+#: views/mv-translations_shortcode.php:133
+msgid "Edit?"
+msgstr "Editar?"
+
+#: views/mv-translations_shortcode.php:134
+msgid "Delete?"
+msgstr "Apagar?"
+
+#: views/mv-translations_shortcode.php:135
+msgid "Status"
+msgstr "Status"
+
+#: views/mv-translations_shortcode.php:145
+msgid "Edit"
+msgstr "Editar"
+
+#: views/mv-translations_shortcode.php:146
+msgid "Delete"
+msgstr "Apagar"
+
+#: views/mv-translations_shortcode.php:147
+msgid "Published"
+msgstr "Publicado"
+
+#: views/mv-translations_shortcode.php:147
+msgid "Pending"
+msgstr "Pendente"
+
+#: views/templates/single-mv-translations.php:39
+msgid "Author"
+msgstr "Autor"
+
+#: views/templates/single-mv-translations.php:42
+msgid "Published on"
+msgstr "Publicado em"
