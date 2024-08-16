@@ -46,12 +46,17 @@
                                 <div class="content">
                                     <?php the_content(); ?>                        
                                 </div>
+                                <?php do_action('mvt_before_video'); ?>
                                 <?php if(!empty($video_url)): ?>
                                     <div class="video">
                                         <?php
                                         global $wp_embed;
                                         $video_embed = $wp_embed->run_shortcode('[embed width="560" height="315"]' . $video_url . '[/embed]');
-                                        echo apply_filters('mvt_video', $video_embed, $post_title);
+
+                                        //Example for how to use filters
+                                        // echo apply_filters('mvt_video', $video_embed, $post_title);
+
+                                        echo $video_embed;
                                         ?>
                                     </div>
                                 <?php endif; ?>
